@@ -5,7 +5,7 @@ status: PUBLISHED
 properties:
   Hostname:
     default: ''
-    secured: false
+    secured: fals
     visible: true
 components:
   centos6x:
