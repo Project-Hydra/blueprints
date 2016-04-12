@@ -1,6 +1,6 @@
 id: CentOS6x
 name: CentOS 6x
-description: Deploys a base CentOS 6.x machine with lots of love!
+description: Deploys a base CentOS 6.x machine with love!
 status: PUBLISHED
 properties:
   Hostname:
