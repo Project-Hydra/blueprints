@@ -1,0 +1,7 @@
+name: "centos6x"
+productVersion: "7.0.1-SNAPSHOT"
+data:
+- locator: "composite-blueprint/CentOS6x.yaml"
+  name: "CentOS 6x"
+  description: "CentOS 6x"
+exportTime: "2016-04-12T19:14:09.316Z"
