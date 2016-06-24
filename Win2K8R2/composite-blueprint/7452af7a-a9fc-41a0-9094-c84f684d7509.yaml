@@ -1,0 +1,37 @@
+id: 7452af7a-a9fc-41a0-9094-c84f684d7509
+name: Windows Server 2008 R2
+description: Deploys a base Windows Server 2008 R2 machine
+status: PUBLISHED
+components:
+  2K8R2TemplateVCAC:
+    type: Infrastructure.CatalogItem.Machine.Virtual.vSphere
+    data:
+      action: FullClone
+      allow_storage_policies: false
+      blueprint_type: '1'
+      cpu: 1
+      disks:
+      - capacity: 40
+        custom_properties: null
+        id: 0
+        initial_location: ''
+        is_clone: true
+        label: Hard disk 1
+        storage_reservation_policy: ''
+        userCreated: false
+        volumeId: 0
+      display_location: true
+      machine_prefix:
+        id: vm
+      memory: 4096
+      provisioning_workflow:
+        id: CloneWorkflow
+      source_machine:
+        id: 85102589-7543-4a70-8c87-48cdb0cca040
+        label: 2K8R2Template-VCAC
+      source_machine_name: 2K8R2Template-VCAC
+      storage:
+        default: 40
+        min: 40
+layout:
+  2K8R2TemplateVCAC: 0,0

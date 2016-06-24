@@ -1,0 +1,7 @@
+name: "Windows Server 2008 R2"
+productVersion: "7.0.1-SNAPSHOT"
+data:
+- locator: "composite-blueprint/7452af7a-a9fc-41a0-9094-c84f684d7509.yaml"
+  name: "Windows Server 2008 R2"
+  description: "Windows Server 2008 R2"
+exportTime: "2016-05-20T15:35:07.441Z"
