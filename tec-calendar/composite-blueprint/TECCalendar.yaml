@@ -1,6 +1,6 @@
 id: TECCalendar
 name: TEC Calendar
-description: Scheduler application for the Sirius TEC facilities
+description: Scheduler application for the Sirius TEC facilities. Word Life.
 status: PUBLISHED
 properties:
   __nsx.app_isolation:
