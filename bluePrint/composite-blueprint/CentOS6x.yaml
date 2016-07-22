@@ -1,6 +1,6 @@
 id: CentOS6x
 name: CentOS 6x
-description: Deploys a base CentOS 6.x machine in Charlotte. Hi Pete.
+description: Deploys a base CentOS 6.x machine in Charlotte.
 status: PUBLISHED
 properties:
   Hostname:
