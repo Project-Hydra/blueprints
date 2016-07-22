@@ -1,0 +1,7 @@
+name: "tec"
+productVersion: "7.0.1-SNAPSHOT"
+data:
+- locator: "composite-blueprint/TECCalendar.yaml"
+  name: "TEC Calendar"
+  description: "TEC Calendar"
+exportTime: "2016-07-22T02:38:20.231Z"

@@ -1,0 +1,146 @@
+id: TECCalendar
+name: TEC Calendar
+description: Scheduler application for the Sirius TEC facilities
+status: PUBLISHED
+properties:
+  __nsx.app_isolation:
+    fixed: 'true'
+    secured: false
+    visible: false
+  __nsx.management_endpoint_name:
+    fixed: vCenter
+    secured: false
+    visible: false
+  __nsx.transport_zone_name:
+    fixed: tz01
+    secured: false
+    visible: false
+components:
+  tec_db:
+    type: Infrastructure.CatalogItem.Machine.Virtual.vSphere
+    data:
+      APP:
+        default: ''
+        required: true
+        secured: false
+        visible: true
+      _cluster:
+        default: 1
+        max: 1
+        min: 1
+      action:
+        fixed: FullClone
+      allow_storage_policies:
+        fixed: false
+      blueprint_type:
+        fixed: '1'
+      cpu:
+        default: 1
+        max: 1
+        min: 1
+      disks:
+      - capacity: 60
+        custom_properties: null
+        id: 1469045991279
+        initial_location: ''
+        is_clone: true
+        label: Hard disk 1
+        storage_reservation_policy: ''
+        userCreated: false
+        volumeId: 0
+      guest_customization_specification: Linux
+      hydra.serverprofile:
+        default: ''
+        required: true
+        secured: false
+        visible: true
+      max_network_adapters: {}
+      max_volumes: {}
+      memory:
+        default: 2048
+        max: 4096
+        min: 2048
+      provisioning_workflow:
+        fixed:
+          id: CloneWorkflow
+          label: CloneWorkflow
+      security_groups: []
+      security_tags: []
+      source_machine:
+        fixed:
+          id: e9182c0f-9571-4494-b4fa-37e19c1aa9f6
+          label: centos6x_x64
+      source_machine_name:
+        fixed: centos6x_x64
+      storage:
+        default: 60
+        max: 60
+        min: 60
+    propertyGroups:
+    - 20160718010156CustomHostnamePropertiesTemplatecopy
+    - ExtensibilityLifecycleProperties
+  tec_web:
+    type: Infrastructure.CatalogItem.Machine.Virtual.vSphere
+    dependsOn:
+    - tec_db
+    data:
+      APP:
+        default: ''
+        required: true
+        secured: false
+        visible: true
+      _cluster:
+        default: 1
+        max: 1
+        min: 1
+      action:
+        fixed: FullClone
+      allow_storage_policies:
+        fixed: false
+      blueprint_type:
+        fixed: '1'
+      cpu:
+        default: 1
+        max: 1
+        min: 1
+      disks:
+      - capacity: 60
+        custom_properties: null
+        id: 1469045991279
+        initial_location: ''
+        is_clone: true
+        label: Hard disk 1
+        storage_reservation_policy: ''
+        userCreated: false
+        volumeId: 0
+      guest_customization_specification: Linux
+      hydra.serverprofile:
+        default: ''
+        required: true
+        secured: false
+        visible: true
+      max_network_adapters: {}
+      max_volumes: {}
+      memory:
+        default: 2048
+        max: 4096
+        min: 2048
+      provisioning_workflow:
+        fixed:
+          id: CloneWorkflow
+          label: CloneWorkflow
+      security_groups: []
+      security_tags: []
+      source_machine:
+        fixed:
+          id: e9182c0f-9571-4494-b4fa-37e19c1aa9f6
+          label: centos6x_x64
+      source_machine_name:
+        fixed: centos6x_x64
+      storage:
+        default: 60
+        max: 60
+        min: 60
+layout:
+  tec_db: 0,1
+  tec_web: 0,0
