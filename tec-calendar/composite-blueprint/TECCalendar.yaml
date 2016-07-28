@@ -16,6 +16,13 @@ properties:
     secured: false
     visible: false
 components:
+  '102350':
+    type: Infrastructure.Network.Network.Existing
+    data:
+      name:
+        fixed: '102350'
+      network_profile:
+        fixed: 10.2.35.0
   tec_db:
     type: Infrastructure.CatalogItem.Machine.Virtual.vSphere
     data:
@@ -36,11 +43,10 @@ components:
         fixed: '1'
       cpu:
         default: 1
-        max: 4
-        min: 4
+        max: 1
+        min: 1
       disks:
       - capacity: 60
-        custom_properties: null
         id: 1469045991279
         initial_location: ''
         is_clone: true
@@ -79,6 +85,39 @@ components:
     propertyGroups:
     - 20160718010156CustomHostnamePropertiesTemplatecopy
     - ExtensibilityLifecycleProperties
+  tec_lb01:
+    type: Infrastructure.Network.LoadBalancer.NSX.OnDemand
+    data:
+      name:
+        fixed: tec_lb01
+      services:
+        fixed:
+        - health_check_interval: 5
+          health_threshold: 5
+          id: HTTP
+          isSelected: true
+          name: HTTP
+          port: 80
+          response_timeout: 5
+          service_URI: ''
+          unhealth_threshold: 10
+        - health_check_interval: 5
+          health_threshold: 5
+          id: HTTPS
+          isSelected: true
+          name: HTTPS
+          port: 443
+          response_timeout: 5
+          service_URI: ''
+          unhealth_threshold: 10
+      tier:
+        fixed: ${_resource~tec_web}
+      tier_nic_index:
+        fixed: 0
+      vip_address:
+        fixed: ''
+      vip_network:
+        fixed: ${_resource~102350}
   tec_web:
     type: Infrastructure.CatalogItem.Machine.Virtual.vSphere
     dependsOn:
@@ -91,7 +130,7 @@ components:
         visible: true
       _cluster:
         default: 1
-        max: 1
+        max: 5
         min: 1
       action:
         fixed: FullClone
@@ -105,7 +144,6 @@ components:
         min: 1
       disks:
       - capacity: 60
-        custom_properties: null
         id: 1469045991279
         initial_location: ''
         is_clone: true
@@ -125,6 +163,13 @@ components:
         default: 2048
         max: 4096
         min: 2048
+      nics:
+      - address: ''
+        assignment_type: DHCP
+        id: 0
+        load_balancing: HTTP,HTTPS
+        network: ${_resource~102350}
+        network_profile: 10.2.35.0
       provisioning_workflow:
         fixed:
           id: CloneWorkflow
@@ -142,5 +187,7 @@ components:
         max: 60
         min: 60
 layout:
-  tec_db: 0,1
-  tec_web: 0,0
+  '102350': 0,0
+  tec_db: 1,2
+  tec_lb01: 1,0
+  tec_web: 1,1
