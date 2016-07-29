@@ -129,7 +129,7 @@ components:
         secured: false
         visible: true
       _cluster:
-        default: 1
+        default: 3
         max: 5
         min: 1
       action:
