@@ -2,15 +2,15 @@ id: CentOS6x
 name: CentOS 6x
 description: Deploys a base CentOS 6.x machine in Charlotte.
 status: PUBLISHED
-properties:
-  Hostname:
-    default: ''
-    secured: false
-    visible: true
 components:
   centos6x:
     type: Infrastructure.CatalogItem.Machine.Virtual.vSphere
     data:
+      APP:
+        default: ''
+        required: true
+        secured: false
+        visible: true
       _cluster:
         default: 1
         max: 1
@@ -28,7 +28,6 @@ components:
       description: base image
       disks:
       - capacity: 60
-        custom_properties: null
         id: 1460401556242
         initial_location: ''
         is_clone: true
@@ -36,6 +35,11 @@ components:
         storage_reservation_policy: ''
         userCreated: false
         volumeId: 0
+      hydra.serverprofile:
+        default: ''
+        required: true
+        secured: false
+        visible: true
       machine_prefix:
         fixed:
           id: vm
@@ -61,5 +65,8 @@ components:
         default: 60
         max: 60
         min: 60
+    propertyGroups:
+    - 20160718010156CustomHostnamePropertiesTemplatecopy
+    - ExtensibilityLifecycleProperties
 layout:
   centos6x: 0,0
